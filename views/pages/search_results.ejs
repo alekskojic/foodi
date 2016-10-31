@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Foodi: <%= location %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>      
+    </head>
+
+    <body>
+        <div class="container">
+            <br>
+            <a href="/"><img class="logo" src="/foodi_kid.png"></a>
+            <% if (total_results !== 0) { %>
+                <h5>Yummy places in <%= location %></h5>
+            <% } else { %>
+                <h5>Unfortunately there aren't any yummy places nearby<i class="material-icons right">thumb_down</i></h5>
+            <% } %>
+
+            <a href="/">
+                <button class="btn waves-effect waves-light">Back</button>
+            </a>
+            <div class="masonry">   
+                <% for (let restaurant of restaurants) { %>    
+                    <div class="item">
+                        <a href=<%= restaurant.url %>> 
+                            <div class="hoverable card">
+                                <div class="card-image">
+                                    <% if (restaurant.image_url !== '') { %>
+                                        <img src=<%= restaurant.image_url %>>
+                                    <% } else { %>
+                                        <img src="/image-na.jpg">
+                                    <% } %>
+                                </div>
+                                <div class="card-content">
+                                    <span class="restaurant-card-title"><%= restaurant.name %></span>
+                                    <span> - <%= restaurant.rating %>/5</span>
+                                    <i class="tiny material-icons">star</i>
+                                    <p class="restaurant-card-address"><%= restaurant.location.address1 + ' ' + restaurant.location.zip_code %></p>
+                                    <p class="restaurant-card-address">
+                                        <%= restaurant.location.city + ', ' + restaurant.location.state + ' ' + restaurant.location.country %>
+                                    </p>
+                                    <% for (let category of restaurant.categories) { %>
+                                        <span class="restaurant-card-categories"><%= category.title %> </span>
+                                    <% } %>
+                                </div>
+                                <div class="card-action">
+                                    <a href=<%= restaurant.directions %>>Get Directions</a> - 
+                                    <a href=<%= restaurant.url %>>More Info</a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        
+        
+        
+    </body>
+</html>

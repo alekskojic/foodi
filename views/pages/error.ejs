@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Foodi: Error</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/styles.css">
+        <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div class="text">
+            <img class="logo" src="/foodi_kid.png">
+            <h1>Foodi</h1>
+            <i class="small material-icons">error</i>
+            <h5><%= error.error.code; %></h5>
+            <h5><%= error.error.description; %></h5>
+            <a href="/">
+                <button class="btn waves-effect waves-light">Back</button>
+            </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+#Files to be ignored
+node_modules/ 
+dist/ 
+*.log
+config.js
+config.json
+
+
+
